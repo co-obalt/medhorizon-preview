@@ -1,0 +1,901 @@
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  --max: 92rem;
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 5rem);
+  min-height: calc(100svh - 5rem);
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.heroTitle {
+  margin-top: 1.4rem;
+  max-width: 13ch;
+}
+
+.heroLede {
+  margin-top: 1.6rem;
+  max-width: 47ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.heroNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin-top: 1.9rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 42ch;
+}
+
+.pulse {
+  width: 7px;
+  height: 7px;
+  margin-top: 0.42rem;
+  border-radius: 50%;
+  background: var(--pine);
+  flex: none;
+  box-shadow: 0 0 0 0 rgba(14, 58, 45, 0.35);
+  animation: pulse 2.8s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(14, 58, 45, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(14, 58, 45, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(14, 58, 45, 0);
+  }
+}
+
+/* Hero illustration — a designed poster, not a dashboard */
+
+.heroArt {
+  position: relative;
+}
+
+.heroPhoto {
+  position: relative;
+  height: clamp(24rem, 58vh, 38rem);
+  border-radius: 14px;
+  border: 1px solid var(--line-strong);
+  overflow: hidden;
+  background: var(--paper-3);
+}
+
+.heroImg {
+  object-fit: cover;
+  object-position: center 34%;
+  filter: saturate(0.82) contrast(1.03);
+}
+
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 19, 16, 0.02) 0%,
+    rgba(11, 19, 16, 0.1) 42%,
+    rgba(11, 19, 16, 0.42) 100%
+  );
+}
+
+.floatingPill {
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: rgba(253, 251, 245, 0.9);
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.pillDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pine);
+}
+
+.visitCard {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 6%;
+  background: var(--white);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  padding: 1.3rem;
+  box-shadow: var(--shadow-card);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cardBadge {
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--pine);
+  background: var(--signal);
+  padding: 0.32rem 0.55rem;
+  border-radius: 3px;
+}
+
+.cardTime {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.cardTitle {
+  margin-top: 0.9rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2vw, 1.55rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.cardList {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+.cardList li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cardIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--signal);
+  color: var(--ink);
+  flex: none;
+}
+
+.cardIcon svg {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+.cardFoot {
+  margin-top: 0.95rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   Assurances strip
+   -------------------------------------------------------------------------- */
+
+.assurances {
+  border-block: 1px solid var(--line);
+  background: var(--paper-2);
+}
+
+.assuranceRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem 2.75rem;
+  padding-block: 1rem;
+}
+
+.assurance {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+.assurance svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: var(--pine);
+  flex: none;
+}
+
+/* --------------------------------------------------------------------------
+   Care cards — editorial rules, not pastel tiles
+   -------------------------------------------------------------------------- */
+
+.sectionHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.sectionHead .lede {
+  justify-self: end;
+  max-width: 42ch;
+}
+
+.careTitle {
+  margin-top: 1.15rem;
+}
+
+.careGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.careCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.5rem 0 0;
+  border-top: 1px solid var(--ink);
+  min-height: 18rem;
+}
+
+.cardSky,
+.cardPeach,
+.cardSand {
+  background: transparent;
+}
+
+.carePhoto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1.15rem 0 1.35rem;
+  background: var(--paper-3);
+}
+
+.careImg {
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.03);
+}
+
+.careCard .careTitle {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+
+.careBody {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 31ch;
+}
+
+.careMeta {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+
+.careNote {
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   How it works
+   -------------------------------------------------------------------------- */
+
+.how {
+  background: var(--paper-2);
+  border-block: 1px solid var(--line);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.step {
+  border-top: 1px solid var(--line-strong);
+  padding-top: 1.2rem;
+}
+
+.stepNum {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--pine);
+}
+
+.stepTitle {
+  margin-top: 1rem;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.stepBody {
+  margin-top: 0.4rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 26ch;
+}
+
+.emergency {
+  margin-top: 2.25rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   Approach
+   -------------------------------------------------------------------------- */
+
+.approach {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(2rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.approachTitle {
+  margin-top: 1.2rem;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.04;
+  max-width: 17ch;
+}
+
+.approachBody {
+  margin-top: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 44ch;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.principles {
+  display: grid;
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding-block: 1.15rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.principle:last-child {
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.principleNum {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--pine);
+  padding-top: 0.1rem;
+}
+
+.principleTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.principleBody {
+  margin-top: 0.2rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   Areas
+   -------------------------------------------------------------------------- */
+
+.areas {
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background: var(--paper-2);
+}
+
+.areaSun {
+  position: absolute;
+  right: -8%;
+  top: -30%;
+  width: 32rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(14, 58, 45, 0.1) 0%,
+    rgba(14, 58, 45, 0) 68%
+  );
+  pointer-events: none;
+}
+
+.areasGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.areasTitle {
+  margin-top: 1.2rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.04;
+  max-width: 13ch;
+}
+
+.areasBody {
+  margin-top: 1.25rem;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.areasLink {
+  margin-top: 1.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Clinicians
+   -------------------------------------------------------------------------- */
+
+.clinicians {
+  position: relative;
+  overflow: hidden;
+  background: var(--pine);
+  color: var(--paper);
+}
+
+.clinicianArc {
+  position: absolute;
+  right: -10rem;
+  bottom: -14rem;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 242, 107, 0.16);
+  pointer-events: none;
+}
+
+.clinicianArc::after {
+  content: "";
+  position: absolute;
+  inset: 3rem;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 242, 107, 0.12);
+}
+
+.clinicianGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.kickerLight {
+  color: rgba(245, 242, 234, 0.65);
+}
+
+.kickerLight::before {
+  background: var(--signal);
+}
+
+.clinicianTitle {
+  margin-top: 1.2rem;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  line-height: 1.02;
+  max-width: 16ch;
+  color: var(--paper);
+}
+
+.clinicianTitle em {
+  color: var(--signal);
+  font-style: italic;
+}
+
+.clinicianBody {
+  margin-top: 1.2rem;
+  max-width: 46ch;
+  color: #b7c6bd;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.clinicianActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.clinicianPhoto {
+  position: relative;
+  aspect-ratio: 4 / 3.1;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+  border: 1px solid rgba(245, 242, 234, 0.16);
+  background: #0b1a14;
+}
+
+.clinicianImg {
+  object-fit: cover;
+  object-position: center 26%;
+  filter: saturate(0.85) contrast(1.02);
+}
+
+.clinicianList {
+  display: grid;
+}
+
+.clinicianItem {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: start;
+  padding-block: 0.95rem;
+  border-top: 1px solid rgba(245, 242, 234, 0.18);
+  font-size: 0.9rem;
+  color: #d8e1da;
+}
+
+.clinicianItem:last-child {
+  border-bottom: 1px solid rgba(245, 242, 234, 0.18);
+}
+
+.clinicianItem svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--signal);
+  margin-top: 0.2rem;
+}
+
+/* --------------------------------------------------------------------------
+   FAQ
+   -------------------------------------------------------------------------- */
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.faqTitle {
+  margin-top: 1.1rem;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  max-width: 16ch;
+}
+
+.faqNote {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  max-width: 28ch;
+}
+
+.faqList {
+  border-top: 1px solid var(--ink);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--line);
+}
+
+.faqSummary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.05rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.faqSummary::-webkit-details-marker {
+  display: none;
+}
+
+.faqPlus {
+  font-size: 1.1rem;
+  color: var(--pine);
+  transition: transform 0.22s var(--ease);
+  flex: none;
+}
+
+.faqItem[open] .faqPlus {
+  transform: rotate(45deg);
+}
+
+.faqAnswer {
+  padding-bottom: 1.2rem;
+  max-width: 62ch;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.faqAnswer a {
+  color: var(--pine);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Final CTA
+   -------------------------------------------------------------------------- */
+
+.cta {
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.ctaPanel {
+  position: relative;
+  overflow: hidden;
+  background: var(--pine);
+  border-radius: var(--radius-lg);
+  padding: clamp(2.25rem, 5.5vw, 4.25rem);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.ctaArcs {
+  position: absolute;
+  right: -6rem;
+  top: -8rem;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 242, 107, 0.16);
+  pointer-events: none;
+}
+
+.ctaArcs::after {
+  content: "";
+  position: absolute;
+  inset: 3rem;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 242, 107, 0.12);
+}
+
+.ctaContent {
+  position: relative;
+}
+
+.ctaKicker {
+  color: rgba(245, 242, 234, 0.6);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.ctaTitle {
+  margin-top: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  max-width: 16ch;
+  color: var(--paper);
+}
+
+.ctaTitle em {
+  font-style: italic;
+  color: var(--signal);
+}
+
+.ctaBody {
+  margin-top: 1rem;
+  max-width: 44ch;
+  color: #b7c6bd;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.ctaAction {
+  position: relative;
+}
+
+.ctaNote {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: rgba(245, 242, 234, 0.55);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1040px) {
+  .heroGrid,
+  .areasGrid,
+  .clinicianGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle {
+    max-width: 16ch;
+  }
+
+  .heroArt {
+    max-width: 34rem;
+  }
+
+  .heroPhoto {
+    height: clamp(20rem, 42vh, 26rem);
+  }
+
+  .approach {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHead {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .sectionHead .lede {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 820px) {
+  .careGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .careCard {
+    min-height: 0;
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem;
+  }
+
+  .ctaPanel {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .ctaAction {
+    justify-self: start;
+  }
+
+  .ctaNote {
+    text-align: left;
+  }
+
+  .faqGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding-top: 1.75rem;
+  }
+
+  .heroPhoto {
+    height: 16rem;
+    border-radius: 10px;
+  }
+
+  .visitCard {
+    display: none;
+  }
+
+  .visitCard {
+    left: 4.5%;
+    right: 4.5%;
+    bottom: 4.5%;
+  }
+
+  .floatingPill {
+    top: 5%;
+    right: 4%;
+    font-size: 0.5625rem;
+  }
+
+  .assuranceRow {
+    justify-content: flex-start;
+    gap: 0.6rem 1.25rem;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .stepBody {
+    max-width: none;
+  }
+
+  .approach {
+    padding: 1.5rem;
+  }
+
+  .ctaPanel {
+    padding: 1.75rem;
+  }
+}

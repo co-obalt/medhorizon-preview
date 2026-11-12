@@ -1,0 +1,159 @@
+.pin {
+  position: relative;
+  height: 300vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.viewport {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.windowEl {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: clamp(1rem, 2vw, 2rem);
+  will-change: transform;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: min(66rem, 84vw);
+  height: min(58vh, 32rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  background: var(--paper-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.media {
+  position: relative;
+  background: var(--paper-3);
+}
+
+.img {
+  object-fit: cover;
+  object-position: center 32%;
+  filter: saturate(0.82) contrast(1.03);
+}
+
+.body {
+  padding: clamp(1.35rem, 2.6vw, 2.75rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.index {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.7vw, 2.6rem);
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+}
+
+.text {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 34ch;
+}
+
+.meta {
+  margin-top: 0.6rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+
+.progress {
+  position: relative;
+  margin-top: 1.5rem;
+  height: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.progress span {
+  position: absolute;
+  inset: 0;
+  background: var(--pine);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+@media (max-width: 900px) {
+  .pin {
+    height: auto !important;
+  }
+
+  .sticky {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .windowEl {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.75rem;
+  }
+
+  .track {
+    transform: none !important;
+  }
+
+  .progress {
+    display: none;
+  }
+
+  .card {
+    width: 86vw;
+    height: auto;
+    grid-template-columns: 1fr;
+    scroll-snap-align: start;
+  }
+
+  .media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .body {
+    padding: 1.35rem;
+  }
+
+  .text {
+    max-width: none;
+  }
+}
+
+/* The track only moves while the visitor scrolls, so it stays enabled for
+   reduced-motion users; the rest of the page still honours the preference. */

@@ -1,0 +1,28 @@
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Local waitlist storage (never commit patient or prospect data)
+data/*.jsonl
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Reference captures and tooling
+*_files/
+impeccable/
+unslop/
+skills/
+.cloud-attachments/
+.freebuff/
+npm-install.log
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

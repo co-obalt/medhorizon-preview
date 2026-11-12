@@ -1,0 +1,143 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(252, 249, 243, 0.9);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom: 1px solid rgba(230, 220, 204, 0.7);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  height: 5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 2.6vw, 2.4rem);
+}
+
+.link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: color 0.2s var(--ease);
+}
+
+.link:hover {
+  color: var(--blue);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: none;
+}
+
+.toggle {
+  display: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+}
+
+.bars {
+  position: relative;
+  width: 16px;
+  height: 10px;
+}
+
+.bars span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.6px;
+  border-radius: 2px;
+  background: var(--ink);
+  transition: transform 0.25s var(--ease), top 0.25s var(--ease);
+}
+
+.bars span:first-child {
+  top: 0;
+}
+
+.bars span:last-child {
+  top: 8px;
+}
+
+.toggle[aria-expanded="true"] .bars span:first-child {
+  top: 4px;
+  transform: rotate(45deg);
+}
+
+.toggle[aria-expanded="true"] .bars span:last-child {
+  top: 4px;
+  transform: rotate(-45deg);
+}
+
+.panel {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .links {
+    display: none;
+  }
+
+  .toggle {
+    display: inline-flex;
+  }
+
+  .panel {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.5rem var(--gutter) 1.5rem;
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+    animation: menu-in 0.24s var(--ease);
+  }
+
+  .panelLink {
+    padding-block: 0.95rem;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--ink);
+  }
+
+  .panelCta {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .desktopCta {
+    display: none;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

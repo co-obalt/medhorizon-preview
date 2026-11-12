@@ -1,0 +1,152 @@
+.panel {
+  background: transparent;
+  overflow: visible;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0 0 0.5rem;
+}
+
+.headTitle {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+
+.headTitle::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-right: 0.45rem;
+  border-radius: 50%;
+  background: var(--signal);
+}
+
+.headMeta {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.globeWrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  overflow: visible;
+  background: transparent;
+}
+
+.globeWrap > div {
+  width: 100%;
+  height: 100%;
+}
+
+/* Limb shading + a soft cast shadow so the sphere reads as a solid object,
+   even with the globe paused. */
+.globeWrap::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 83%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 33% 27%,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0) 38%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 0, 0, 0) 52%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  box-shadow:
+    inset 0 0 46px rgba(0, 0, 0, 0.28),
+    0 28px 50px -30px rgba(11, 19, 16, 0.55);
+}
+
+.globeLoading {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 42%,
+    #fbf8f0 0%,
+    var(--paper-2) 68%
+  );
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 1.5rem;
+  margin: 0;
+  padding: 0.6rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.legendItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.legendTerm {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+
+.waveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  border: 1px solid var(--pine);
+}
+
+.waveNote {
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+}
+
+.legendCities {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 640px) {
+  .head {
+    padding: 0 0 0.4rem;
+  }
+
+  .headMeta {
+    display: none;
+  }
+
+  .legend {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 0.55rem 0 0;
+  }
+}
